@@ -6,6 +6,7 @@ class RegisterPage extends StatefulWidget {
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
+
 class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -30,10 +31,7 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/images/logospecss.png',
-                height: 75,
-              ),
+              Image.asset('assets/images/logospecss.png', height: 75),
               const SizedBox(height: 25),
               const Text(
                 'DAFTAR AKUN BARU',
@@ -46,7 +44,10 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(height: 20),
               // Nama Lengkap
               ListTile(
-                title: const Text('Nama Lengkap', style: TextStyle(fontSize: 13)),
+                title: const Text(
+                  'Nama Lengkap',
+                  style: TextStyle(fontSize: 13),
+                ),
                 subtitle: TextFormField(
                   controller: nameController,
                   decoration: const InputDecoration(
@@ -70,7 +71,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   Expanded(
                     child: ListTile(
                       contentPadding: EdgeInsets.zero,
-                      title: const Text('Email', style: TextStyle(fontSize: 13)),
+                      title: const Text(
+                        'Email',
+                        style: TextStyle(fontSize: 13),
+                      ),
                       subtitle: TextFormField(
                         controller: emailController,
                         decoration: const InputDecoration(
@@ -93,7 +97,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   Expanded(
                     child: ListTile(
                       contentPadding: EdgeInsets.zero,
-                      title: const Text('No HP', style: TextStyle(fontSize: 13)),
+                      title: const Text(
+                        'No HP',
+                        style: TextStyle(fontSize: 13),
+                      ),
                       subtitle: TextFormField(
                         controller: phoneController,
                         decoration: const InputDecoration(
@@ -192,7 +199,12 @@ class _RegisterPageState extends State<RegisterPage> {
                                 'Password tidak sama',
                                 style: TextStyle(color: Colors.white),
                               ),
-                              backgroundColor: const Color.fromARGB(255, 255, 0, 0),
+                              backgroundColor: const Color.fromARGB(
+                                255,
+                                255,
+                                0,
+                                0,
+                              ),
                               duration: const Duration(seconds: 2),
                             ),
                           );
@@ -209,7 +221,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ],
               ),
-               const SizedBox(height: 30),
+              const SizedBox(height: 30),
               // Daftar Button
               ElevatedButton(
                 onPressed: () {
@@ -218,9 +230,12 @@ class _RegisterPageState extends State<RegisterPage> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomePage(
-                          nama: nameController.text, // Passing name to HomePage
-                        ),
+                        builder:
+                            (context) => HomePage(
+                              nama:
+                                  nameController
+                                      .text, // Passing name to HomePage
+                            ),
                       ),
                     );
                   }
@@ -234,8 +249,34 @@ class _RegisterPageState extends State<RegisterPage> {
                   foregroundColor: MaterialStateProperty.all(Colors.white),
                 ),
               ),
-
-
-
-
+              const SizedBox(height: 20),
+              // Redirect ke LoginPage
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('Sudah memiliki akun? Silahkan'),
+                  const SizedBox(width: 5),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                      );
+                    },
+                    child: const Text(
+                      'Login Disini!',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepOrangeAccent,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
