@@ -42,3 +42,40 @@ class _DataPiketState extends State<DataPiket> {
     'November': 'November',
     'December': 'Desember',
   };
+
+  @override
+  void initState() {
+    super.initState();
+    _namaController = TextEditingController(text: widget.nama);
+  }
+  String _formatIndonesianDate(DateTime date) {
+    final englishDay = DateFormat('EEEE').format(date);
+    final englishMonth = DateFormat('MMMM').format(date);
+    
+    final indonesianDay = _indonesianDays[englishDay] ?? englishDay;
+    final indonesianMonth = _indonesianMonths[englishMonth] ?? englishMonth;
+    
+    return '$indonesianDay, ${date.day} $indonesianMonth ${date.year}';
+  }
+
+  @override
+  void dispose() {
+    _namaController.dispose();
+    _tugasController.dispose();
+    _tanggalController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _pickDate() async {
+    DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+    if (picked != null) {
+      setState(() {
+        _tanggalController.text = _formatIndonesianDate(picked);
+      });
+    }
+  }
