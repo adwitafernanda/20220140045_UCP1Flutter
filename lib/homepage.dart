@@ -127,3 +127,43 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+  
+  Widget menuCard({
+    required IconData icon,
+    required String title,
+    Color backgroundColor = const Color.fromARGB(255, 255, 2, 2),
+    double height = 100,
+    bool fullWidth = false,
+    VoidCallback? onTap,
+  }) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: fullWidth ? double.infinity : null,
+        height: height,
+        padding: EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, size: 36, color: Colors.white),
+              SizedBox(width: 12),
+              Text(
+                title,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
