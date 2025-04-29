@@ -69,6 +69,32 @@ class _LoginPageState extends State<LoginPage> {
                 },
               ),
 
+              const SizedBox(height: 20),
+              Row(children: [Text('Password')]),
+              const SizedBox(height: 5),
+
+              TextFormField(
+                controller: passwordController,
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  border: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                  prefixIcon: const Icon(Icons.lock),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscurePassword
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscurePassword = !_obscurePassword;
+                      });
+                    },
+                  ),
+                ),
+
               
 
 
