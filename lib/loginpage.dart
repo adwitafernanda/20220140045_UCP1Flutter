@@ -94,6 +94,30 @@ class _LoginPageState extends State<LoginPage> {
                     },
                   ),
                 ),
+                obscureText: _obscurePassword,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Password tidak boleh kosong';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 50),
+
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder:
+                            (context) => HomePage(
+                              nama: emailController.text,
+                            ), // Kirim email ke HomePage
+                      ),
+                    );
+                  }
+                },
 
               
 
