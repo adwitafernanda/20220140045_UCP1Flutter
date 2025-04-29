@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/homepage.dart';
 import 'package:ucp1/loginpage.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -43,7 +44,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
               const SizedBox(height: 20),
-              // Nama Lengkap
+              
               ListTile(
                 title: const Text(
                   'Nama Lengkap',
@@ -223,11 +224,11 @@ class _RegisterPageState extends State<RegisterPage> {
                 ],
               ),
               const SizedBox(height: 30),
-              // Daftar Button
+              
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    // Setelah validasi sukses, lanjutkan ke HomePage
+                    
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
@@ -235,7 +236,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             (context) => HomePage(
                               nama:
                                   nameController
-                                      .text, // Passing name to HomePage
+                                      .text, 
                             ),
                       ),
                     );
@@ -251,7 +252,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
               const SizedBox(height: 20),
-              // Redirect ke LoginPage
+              
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

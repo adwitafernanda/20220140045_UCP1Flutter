@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/homepage.dart';
+import 'package:ucp1/registerpage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,7 +12,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  bool _obscurePassword = true; // State variable for password visibility
+  bool _obscurePassword = true;
 
   @override
   void initState() {
@@ -33,10 +35,10 @@ class _LoginPageState extends State<LoginPage> {
                   Image.asset(
                     'assets/images/logospecss.png',
                     height: 75,
-                  ), // Atur tinggi gambar
+                  ), 
                   const SizedBox(
                     height: 25,
-                  ), // Kurangi jarak antara gambar dan teks
+                  ),
                   const Text(
                     'SELAMAT DATANG KEMBALI',
                     style: TextStyle(
@@ -113,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                         builder:
                             (context) => HomePage(
                               nama: emailController.text,
-                            ), // Kirim email ke HomePage
+                            ), 
                       ),
                     );
                   }

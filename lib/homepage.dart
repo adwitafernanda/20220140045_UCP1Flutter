@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/datapiketpage.dart';
 
 class HomePage extends StatefulWidget {
   final String nama;
@@ -81,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisCount: 2,
                 crossAxisSpacing: 12,
                 mainAxisSpacing: 12,
-                childAspectRatio: 1, // 1:1 untuk normal card
+                childAspectRatio: 1, 
               ),
               children: [
                 menuCard(

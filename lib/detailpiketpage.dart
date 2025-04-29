@@ -24,7 +24,7 @@ class DetailPiketPage extends StatelessWidget {
           },
         ),
         title: Text(
-          'Detail $tugas', // <-- Ubah jadi dinamis sesuai tugas
+          'Detail $tugas', 
           style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -34,7 +34,7 @@ class DetailPiketPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Tanggal + Nama badge
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
