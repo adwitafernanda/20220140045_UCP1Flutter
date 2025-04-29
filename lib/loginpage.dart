@@ -118,9 +118,18 @@ class _LoginPageState extends State<LoginPage> {
                     );
                   }
                 },
+                child: Text('Masuk'),
+                style: ButtonStyle(
+                  fixedSize: WidgetStatePropertyAll(Size.fromWidth(1000)),
+                  backgroundColor: WidgetStatePropertyAll(
+                    const Color.fromARGB(255, 252, 1, 1),
+                  ),
+                  foregroundColor: WidgetStatePropertyAll(Colors.white),
+                ),
+              ),
 
+              
               
 
 
 
-}
