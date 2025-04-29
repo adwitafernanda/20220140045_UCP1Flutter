@@ -79,3 +79,17 @@ class _DataPiketState extends State<DataPiket> {
       });
     }
   }
+  void _tambahTugas() {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        _daftarTugas.add({
+          'nama': _namaController.text,
+          'tanggal': _tanggalController.text,
+          'tugas': _tugasController.text,
+        });
+        _tanggalController.clear();
+        _tugasController.clear();
+      });
+    }
+  }
+
