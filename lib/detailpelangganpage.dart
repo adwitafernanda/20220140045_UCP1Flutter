@@ -23,7 +23,7 @@ class DetailPelangganPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFFDF8F5),
       appBar: AppBar(
-        backgroundColor: const Color(0xFFFE5A28),
+        backgroundColor: const Color.fromARGB(255, 255, 0, 0),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
@@ -76,7 +76,7 @@ class DetailPelangganPage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFE5A28),
+                  backgroundColor: const Color.fromARGB(255, 255, 0, 0),
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),

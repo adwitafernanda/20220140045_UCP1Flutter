@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/databarangpage.dart';
+import 'package:ucp1/datapelangganpage.dart';
 import 'package:ucp1/datapiketpage.dart';
+import 'package:ucp1/loginpage.dart';
+
 
 class HomePage extends StatefulWidget {
   final String nama;
@@ -92,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                   onTap: () {
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => DataPiket()),
+                        MaterialPageRoute(builder: (context) => DataPiket(nama:'')),
                       );
                   },
                 ),

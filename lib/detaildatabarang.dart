@@ -20,7 +20,7 @@ class DetailDataBarang extends StatelessWidget {
     @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
@@ -43,9 +43,9 @@ class DetailDataBarang extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(
-                      Icons.check,
+                      Icons.check_circle_outline,
                       color: Colors.white,
-                      size: 30,
+                      size: 70,
                     ),
                   ),
                 ),

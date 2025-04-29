@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/detaildatabarang.dart';
+import 'package:intl/intl.dart';
 
 class DataBarang extends StatefulWidget {
   const DataBarang({super.key});
@@ -99,7 +101,7 @@ class _DataBarangState extends State<DataBarang> {
         ),
         title: const Text('Pendataan Barang', style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: const Color.fromARGB(255, 255, 0, 0),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -206,7 +208,7 @@ class _DataBarangState extends State<DataBarang> {
                   height: 50,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
+                      backgroundColor: const Color.fromARGB(255, 255, 0, 0),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     ),
                     onPressed: _isLoading ? null : _submitForm,
