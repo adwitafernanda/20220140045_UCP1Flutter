@@ -209,6 +209,32 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ],
               ),
+               const SizedBox(height: 30),
+              // Daftar Button
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    // Setelah validasi sukses, lanjutkan ke HomePage
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePage(
+                          nama: nameController.text, // Passing name to HomePage
+                        ),
+                      ),
+                    );
+                  }
+                },
+                child: const Text('Daftar'),
+                style: ButtonStyle(
+                  fixedSize: MaterialStateProperty.all(Size.fromWidth(375)),
+                  backgroundColor: MaterialStateProperty.all(
+                    const Color.fromARGB(255, 252, 1, 1),
+                  ),
+                  foregroundColor: MaterialStateProperty.all(Colors.white),
+                ),
+              ),
+
 
 
 
