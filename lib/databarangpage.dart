@@ -89,4 +89,139 @@ class _DataBarangState extends State<DataBarang> {
       );
     }
   }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: const Text('Pendataan Barang', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        backgroundColor: Colors.red,
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('Tanggal Transaksi'),
+                const SizedBox(height: 8),
+                TextFormField(
+                  controller: _tanggalController,
+                  readOnly: true,
+                  onTap: _selectDate,
+                  decoration: InputDecoration(
+                    hintText: 'Tanggal Transaksi',
+                    prefixIcon: const Icon(Icons.calendar_today),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  ),
+                  validator: (value) => value == null || value.isEmpty ? 'Tanggal tidak boleh kosong' : null,
+                ),
+                const SizedBox(height: 16),
+                const Text('Jenis Transaksi'),
+                const SizedBox(height: 8),
+                DropdownButtonFormField<String>(
+                  value: _selectedJenisTransaksi,
+                  decoration: InputDecoration(
+                    hintText: 'Pilih jenis transaksi',
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  ),
+                  items: ['Barang Masuk', 'Barang Keluar']
+                      .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+                      .toList(),
+                  onChanged: (value) => setState(() => _selectedJenisTransaksi = value),
+                  validator: (value) => value == null ? 'Jenis transaksi tidak boleh kosong' : null,
+                ),
+                const SizedBox(height: 16),
+                const Text('Jenis Barang'),
+                const SizedBox(height: 8),
+                DropdownButtonFormField<String>(
+                  value: _selectedJenisBarang,
+                  decoration: InputDecoration(
+                    hintText: 'Pilih jenis barang',
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  ),
+                  items: _hargaBarang.keys
+                      .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+                      .toList(),
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedJenisBarang = value;
+                      _hargaController.text = _hargaBarang[value!]!.toString();
+                    });
+                  },
+                  validator: (value) => value == null ? 'Jenis barang tidak boleh kosong' : null,
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text('Jumlah Barang'),
+                          const SizedBox(height: 8),
+                          TextFormField(
+                            controller: _jumlahController,
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              hintText: 'Jumlah Barang',
+                              border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                            ),
+                            validator: (value) => value == null || value.isEmpty ? 'Jumlah barang tidak boleh kosong' : null,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text('Harga Satuan'),
+                          const SizedBox(height: 8),
+                          TextFormField(
+                            controller: _hargaController,
+                            readOnly: true,
+                            decoration: InputDecoration(
+                              prefixText: 'Rp. ',
+                              hintText: 'Harga Satuan',
+                              border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                            ),
+                            validator: (value) => value == null || value.isEmpty ? 'Harga satuan tidak boleh kosong' : null,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 32),
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                    onPressed: _isLoading ? null : _submitForm,
+                    child: _isLoading
+                        ? const CircularProgressIndicator(color: Colors.white)
+                        : const Text('Submit',style: TextStyle(color: Colors.white),),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 
