@@ -43,4 +43,26 @@ class _RegisterPageState extends State<RegisterPage> {
                   fontStyle: FontStyle.italic,
                 ),
               ),
+              const SizedBox(height: 20),
+              // Nama Lengkap
+              ListTile(
+                title: const Text('Nama Lengkap', style: TextStyle(fontSize: 13)),
+                subtitle: TextFormField(
+                  controller: nameController,
+                  decoration: const InputDecoration(
+                    labelText: 'Nama Lengkap',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    ),
+                    prefixIcon: Icon(Icons.person),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Nama lengkap tidak boleh kosong';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+
 }
