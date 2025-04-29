@@ -50,3 +50,43 @@ class _DataBarangState extends State<DataBarang> {
       });
     }
   }
+  @override
+  void dispose() {
+    _tanggalController.dispose();
+    _jumlahController.dispose();
+    _hargaController.dispose();
+    super.dispose();
+  }
+
+  void _submitForm() async {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        _isLoading = true; // Start loading
+      });
+
+      await Future.delayed(const Duration(seconds: 1)); // Simulasi delay
+
+      int jumlah = int.tryParse(_jumlahController.text) ?? 0;
+      int hargaSatuan = int.tryParse(_hargaController.text) ?? 0;
+      int totalHarga = jumlah * hargaSatuan;
+
+      setState(() {
+        _isLoading = false; // Stop loading
+      });
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => DetailDataBarang(
+            tanggal: _tanggalController.text,
+            jenisTransaksi: _selectedJenisTransaksi ?? '',
+            jenisBarang: _selectedJenisBarang ?? '',
+            jumlah: jumlah,
+            hargaSatuan: hargaSatuan,
+            totalHarga: totalHarga,
+          ),
+        ),
+      );
+    }
+  }
+
