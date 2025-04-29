@@ -64,5 +64,30 @@ class _RegisterPageState extends State<RegisterPage> {
                   },
                 ),
               ),
+              const SizedBox(height: 5),
+              Row(
+                children: [
+                  Expanded(
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: const Text('Email', style: TextStyle(fontSize: 13)),
+                      subtitle: TextFormField(
+                        controller: emailController,
+                        decoration: const InputDecoration(
+                          labelText: 'Email',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                          ),
+                          prefixIcon: Icon(Icons.email),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Email tidak boleh kosong';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                  ),
 
 }
