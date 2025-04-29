@@ -58,3 +58,72 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Center(
+                child: Image.asset(
+                  'assets/images/banner.jpg',
+                  width: 550,
+                  height: 150,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            SizedBox(height: 50),
+            GridView(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                childAspectRatio: 1, // 1:1 untuk normal card
+              ),
+              children: [
+                menuCard(
+                  icon: Icons.group,
+                  title: 'Data Piket',
+                  backgroundColor: Color.fromARGB(255, 255, 0, 0),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => DataPiket()),
+                      );
+                  },
+                ),
+                menuCard(
+                  icon: Icons.account_box,
+                  title: 'Data Pelanggan',
+                  backgroundColor: Color.fromARGB(255, 255, 0, 0),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => DataPelanggan()),
+                      );
+                  },
+                ),
+              ],
+            ),
+            SizedBox(height: 12),
+            menuCard(
+              icon: Icons.warehouse,
+              title: 'Barang Masuk/Keluar',
+              backgroundColor: Color.fromARGB(255, 255, 0, 0),
+              height: 200,
+              fullWidth: true,
+              onTap: () {
+                Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => DataBarang()),
+                      );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
