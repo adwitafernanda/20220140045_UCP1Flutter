@@ -128,8 +128,41 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
-              
-              
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('belum memiliki akun ? Silahkan'),
+                  const SizedBox(height: 40),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => RegisterPage()),
+                      );
+                    },
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      minimumSize: Size(0, 0),
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                    child: Text(
+                      ' Daftar disini !',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepOrangeAccent,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 
 
 
