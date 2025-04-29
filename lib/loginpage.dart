@@ -16,4 +16,36 @@ class _LoginPageState extends State<LoginPage> {
   void initState() {
     super.initState();
   }
+
+  @override
+  Widget build(BuildContext context) {
+    final _formKey = GlobalKey<FormState>();
+    return Scaffold(
+      body: Form(
+        key: _formKey,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                children: [
+                  Image.asset(
+                    'assets/images/logospecss.png',
+                    height: 75,
+                  ), // Atur tinggi gambar
+                  const SizedBox(
+                    height: 25,
+                  ), // Kurangi jarak antara gambar dan teks
+                  const Text(
+                    'SELAMAT DATANG KEMBALI',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
+              ),
+
 }
