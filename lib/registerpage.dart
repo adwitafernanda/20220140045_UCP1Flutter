@@ -155,6 +155,60 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
                   ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: const Text(
+                        'Konfirmasi Password',
+                        style: TextStyle(fontSize: 13),
+                      ),
+                      subtitle: TextFormField(
+                        controller: confpasswordController,
+                        decoration: InputDecoration(
+                          labelText: 'Konfirmasi Password',
+                          border: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                          ),
+                          prefixIcon: const Icon(Icons.lock),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _obscurePassword
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _obscurePassword = !_obscurePassword;
+                              });
+                            },
+                          ),
+                        ),
+                        obscureText: _obscurePassword,
+                        validator: (value) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: const Text(
+                                'Password tidak sama',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              backgroundColor: const Color.fromARGB(255, 255, 0, 0),
+                              duration: const Duration(seconds: 2),
+                            ),
+                          );
+                          if (value == null || value.isEmpty) {
+                            return 'Konfirmasi password tidak boleh kosong';
+                          }
+                          if (value != passwordController.text) {
+                            return 'Password dan konfirmasi password tidak cocok';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
 
 
 
